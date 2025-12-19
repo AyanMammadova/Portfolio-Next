@@ -3,4 +3,38 @@
 body {
   font-family: 'Newsreader', serif;
   font-weight: 500;
+  animation-duration: 300;
+transition: all;
+}
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 0 0% 3.9%;
+  --primary: 221 83% 53%;
+  --secondary: 210 40% 96%;
+  --accent: 210 40% 96%;
+  --muted: 210 40% 96%;
+  --border: 214 32% 91%;
+}
+
+.dark {
+  --background: 0 0% 3.9%;
+  --foreground: 0 0% 98%;
+  --primary: 217 91% 60%;
+  --secondary: 217 33% 17%;
+  --accent: 217 33% 17%;
+  --muted: 217 33% 17%;
+  --border: 217 33% 17%;
+}
+
+
+
+::-webkit-scrollbar {
+  width:7px;
+}
+
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: #748C2D;
 }
