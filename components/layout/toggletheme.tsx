@@ -20,7 +20,6 @@ export function ThemeToggle() {
                 className="relative cursor-pointer p-2 rounded-lg overflow-visible group"
             >
                 <div className="relative w-[50px] h-[50px]">
-                    {/* Günəş - Daimi fırlanma */}
                     <img 
                         className={`sun-spin absolute inset-0 h-full w-full transition-all duration-1000 ease-out ${
                             theme === 'dark' 
@@ -34,7 +33,6 @@ export function ThemeToggle() {
                         alt="Sun" 
                     />
                     
-                    {/* Ay - Daimi üzgücülük */}
                     <img 
                         className={`moon-float absolute inset-0 h-full w-full transition-all duration-1000 ease-out ${
                             theme === 'dark' 

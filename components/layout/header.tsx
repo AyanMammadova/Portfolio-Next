@@ -9,14 +9,23 @@ import MobileMenu from './mobileMenu'
 import { usePathname } from 'next/navigation'
 
 const Header = () => {
-    const { theme } = useTheme()
+    const { theme, resolvedTheme } = useTheme()
     const pathname = usePathname()
     const [menuOpen, setMenuOpen] = useState(false)
+    const [mounted, setMounted] = useState(false)
+
+    useEffect(() => {
+        setMounted(true)
+    }, [])
+
     useEffect(() => {
         if (menuOpen) {
             setMenuOpen(false)
         }
     }, [pathname])
+
+    const currentTheme = mounted ? (resolvedTheme || theme) : 'light'
+
     return (
         <div className='transition-all h-[150px] duration-300'>
             <div
@@ -37,9 +46,11 @@ const Header = () => {
                         <TiThMenu className='text-[3em] ' />
                     </div>
                     <Link href={'/'} className="relative w-28 h-28">
-                        {
-                            theme === 'dark' ? <img src="/images/logoDark.png" alt="" /> : <img src="/images/logoLight.png" alt="" />
-                        }
+                        {mounted && (
+                            currentTheme === 'dark' 
+                                ? <img src="/images/logoDark.png" alt="Logo" /> 
+                                : <img src="/images/logoLight.png" alt="Logo" />
+                        )}
                     </Link>
                 </div>
                 <div className=' gap-[20px] hidden md:flex  items-center'>
